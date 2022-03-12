@@ -43,7 +43,10 @@ app.get('/', function (req, res) {
 	// the Schlüssel is going to be the variable that you are gonna pass into home.ejs startingContent
 	// and the Wert, is whatever it is that you want to pass over, that comes from this current page app.js homeStartingContent
 	// Home
-	res.render('home', { startingContent: homeStartingContent })
+	res.render('home', {
+		startingContent: homeStartingContent,
+		posts: posts,
+	})
 	console.log(posts)
 })
 // 7 - About route
