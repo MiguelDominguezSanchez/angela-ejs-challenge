@@ -20,8 +20,14 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
-// array global
-var posts = []
+// 11 - array global
+// global container inside app.js
+// to be able to store each of the posts
+// that come in through the post route compose, blog post
+// this has to be a global variable
+// it has to be reach by all of these functions
+// right at the top and outside of any of these functions
+let posts = []
 
 // 1 - Create route inside server. Specify route.
 // 2 - Specify the root route '/' we want to target.
@@ -38,30 +44,35 @@ app.get('/', function (req, res) {
 	// and the Wert, is whatever it is that you want to pass over, that comes from this current page app.js homeStartingContent
 	// Home
 	res.render('home', { startingContent: homeStartingContent })
+	console.log(posts)
 })
-// About route
+// 7 - About route
 app.get('/about', function (req, res) {
 	// About
 	res.render('about', { aboutContent: aboutContent })
 })
 
-// Contact route
+// 8 - Contact route
 app.get('/contact', function (req, res) {
 	// Contact
 	res.render('contact', { contactContent: contactContent })
 })
 
-// Compose route
+// 9 - Compose route
 app.get('/compose', function (req, res) {
 	res.render('compose')
 })
-
+// 10 - Compose post route, post a new blog post data
 app.post('/compose', function (req, res) {
 	const post = {
 		title: req.body.postTitle,
 		content: req.body.postBody,
 	}
-	// method allows to redirect to another route
+
+	// 12 - posts array 'push' method to add elements into the array
+	posts.push(post)
+	// 13 - method allows to redirect to another route
+	// Home root route
 	res.redirect('/')
 })
 
