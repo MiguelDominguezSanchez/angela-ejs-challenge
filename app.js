@@ -21,9 +21,10 @@ app.use(express.static('public'))
 // 1 - Create route inside server. Specify route.
 // 2 - Specify the root route '/' we want to target.
 app.get('/', function (req, res) {
-	// 3 - res method, result send back from tthe server to the user who is requesting this page.
+	// 3 - res method, result send back from the server to the user who is requesting this page.
 	// 4 - use the 'render' express give us
-	res.render()
+	// 5 - specify page inside qutation marks 'home'
+	res.render('home')
 })
 
 app.listen(3000, function () {
