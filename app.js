@@ -20,6 +20,9 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
+// array global
+var posts = []
+
 // 1 - Create route inside server. Specify route.
 // 2 - Specify the root route '/' we want to target.
 app.get('/', function (req, res) {
@@ -58,6 +61,8 @@ app.post('/compose', function (req, res) {
 		title: req.body.postTitle,
 		content: req.body.postBody,
 	}
+	// method allows to redirect to another route
+	res.redirect('/')
 })
 
 app.listen(3000, function () {
