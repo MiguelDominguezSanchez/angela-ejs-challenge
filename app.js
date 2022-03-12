@@ -27,12 +27,12 @@ app.get('/', function (req, res) {
 	// 6 - if we want to pass in a variable,
 	// we would add a coma, and then we pass over a javascript object
 	// javascript objects are key value pairs
-	// insidee a set of curly braces
-	// you need to providee a key(Sclüssel) and a value(Wert)
-	// the Schlüssel is going to be the variable that you are gonna tap into home.ejs
-	// and the Wert, is whatever it is that you want to pass over, that comes from this current page app.js
+	// inside a set of curly braces
+	// you need to provide a key(Sclüssel) and a value(Wert)
+	// the Schlüssel is going to be the variable that you are gonna pass into home.ejs startingContent
+	// and the Wert, is whatever it is that you want to pass over, that comes from this current page app.js homeStartingContent
 	//
-	res.render('home', {})
+	res.render('home', { startingContent: homeStartingContent })
 })
 
 app.listen(3000, function () {
