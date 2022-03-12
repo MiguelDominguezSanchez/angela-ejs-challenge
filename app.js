@@ -24,7 +24,15 @@ app.get('/', function (req, res) {
 	// 3 - res method, result send back from the server to the user who is requesting this page.
 	// 4 - use the 'render' express give us
 	// 5 - specify page inside qutation marks 'home'
-	res.render('home')
+	// 6 - if we want to pass in a variable,
+	// we would add a coma, and then we pass over a javascript object
+	// javascript objects are key value pairs
+	// insidee a set of curly braces
+	// you need to providee a key(Sclüssel) and a value(Wert)
+	// the Schlüssel is going to be the variable that you are gonna tap into home.ejs
+	// and the Wert, is whatever it is that you want to pass over, that comes from this current page app.js
+	//
+	res.render('home', {})
 })
 
 app.listen(3000, function () {
